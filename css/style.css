@@ -67,6 +67,19 @@ LOADING
     place-items: center;
 }
 
+#loading-screen {
+    background-color: var(--light-green);
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    translate: 0 100vh;
+}
+
+#loading p {
+    font-size: 2rem;
+    font-family: var(--oswald-font);
+}
+
 /*
 HERO
 ================================================ */
