@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 
 /*
-VARIABLES
+VARIABLES変数を宣言する（以降varで呼び出せる）
 ================================================ */
 :root {
     --light-green: #d5edeb;
@@ -13,16 +13,16 @@ VARIABLES
 }
 
 /*
-GENERAL STYLING
+全体
 ================================================ */
 body {
     color: var(--brown);
-    background: url('../images/bg-shadow.jpg') no-repeat right bottom / cover fixed;
+    background: url('../images/bg-body.jpg') no-repeat right bottom / cover fixed;
     text-align: center;
 }
 
 /*
-COMMON
+共通
 ================================================ */
 p {
     line-height: 1.7;
@@ -47,7 +47,7 @@ img {
 }
 
 /*
-LAYOUT
+レイアウト
 ================================================ */
 .wrapper {
     max-width: 38rem;
@@ -56,7 +56,7 @@ LAYOUT
 }
 
 /* 
-LOADING
+ローディング
 =================================================*/
 #loading {
     background-color: var(--light-grey);
@@ -81,21 +81,22 @@ LOADING
 }
 
 /*
-HERO
+メイン
 ================================================ */
-.hero {
+.main-visual {
     height: 100vh;
     position: relative;
 }
-.hero::after {
+/* mvの最後に子要素として擬似要素を追加する */
+.main-visual::after {
     content: '';
     width: 50%;
     height: 100vh;
-    background: url('../images/bg-hero.jpg') no-repeat center / cover;
+    background: url('../images/main-visual.jpg') no-repeat center / cover;
     position: absolute;
     inset: 0;
 }
-.hero .title {
+.main-visual .title {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -104,14 +105,25 @@ HERO
     width: 100%;
     font-size: max(12vw, 3rem);
     line-height: 1.2;
+    /* スクロールされたら始まるようにしたい */
+    animation: title-animation 4s;
+    animation-fill-mode: forwards;
+    animation-delay: 2.5s;
+    opacity: 0;
+}
+
+@keyframes title-animation {
+    0% {opacity: 0; transform: translate(0,-10);}
+    100% {opacity: 1; transform: translate(0,0);}
 }
 
 /*
-CONCEPT
+コンセプト
 ================================================ */
 .concept {
     margin: 8rem 0;
     background-image: linear-gradient(
+        /* 方向, 透明度, 開始の色, 終了の色 */
         to right,
         transparent 0%,
         transparent 20%,
@@ -125,7 +137,7 @@ CONCEPT
 }
 
 /*
-GALLERY
+商品ギャラリー
 ================================================ */
 .gallery {
     display: flex;
@@ -166,7 +178,7 @@ GALLERY
 }
 
 /*
-SHOP INFO
+ショップ情報
 ================================================ */
 .shop {
     background: url('../images/bg-shop.jpg') no-repeat center top / cover;

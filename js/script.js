@@ -1,5 +1,5 @@
 /*
-ローディングから画面遷移
+ローディング
 ==================================*/
 const loadingAreaGray = document.querySelector('#loading');
 const loadingAreaGreen = document.querySelector('#loading-screen');
