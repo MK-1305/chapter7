@@ -51,6 +51,21 @@ window.addEventListener('load', () => {
     );
 });
 
+// conceptのtitleを指定したい
+const conceptTitle = document.querySelector('.title');
+let options1 = {threshold: 0.5};
+
+const observer1 = new IntersectionObserver(callback1, options1);
+
+observer1.observe(conceptTitle);
+
+function callback1(entries) {
+    if(entries[0].isIntersecting) {
+        conceptTitle.classList.add("concept-animation");
+    }
+};
+
+
 // 画像ギャラリー
 const mainImage = document.querySelector('.gallery-image img');
 const thumbImages = document.querySelectorAll('.gallery-thumbnails img');

@@ -8,6 +8,7 @@ VARIABLES変数を宣言する（以降varで呼び出せる）
     --green: #63dbd0;
     --brown: #403632;
     --light-grey: #eee;
+    --orange: #faa55f;
     --white: #fff;
     --oswald-font: 'Oswald', sans-serif;
 }
@@ -105,9 +106,7 @@ img {
     width: 100%;
     font-size: max(12vw, 3rem);
     line-height: 1.2;
-    /* スクロールされたら始まるようにしたい */
-    animation: title-animation 4s;
-    animation-fill-mode: forwards;
+    animation: title-animation 4s forwards;
     animation-delay: 2.5s;
     opacity: 0;
 }
@@ -127,9 +126,18 @@ img {
         to right,
         transparent 0%,
         transparent 20%,
-        var(--light-grey) 20%,
+        var(--orange) 20%,
         var(--light-grey) 100%
     );
+}
+
+.concept-title {
+    animation: concept-animation 4s forwards;
+}
+
+@keyframes concept-animation {
+    0% {opacity: 0; transform: translate(0, -30);}
+    100% {opacity: 1; transform: translate(0,0);}
 }
 .concept p {
     text-align: left;
