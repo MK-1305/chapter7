@@ -18,7 +18,7 @@ VARIABLES変数を宣言する（以降varで呼び出せる）
 ================================================ */
 body {
     color: var(--brown);
-    background: url('../images/bg-body.jpg') no-repeat right bottom / cover fixed;
+    background: url('../images/yobi.jpg') no-repeat right bottom / cover fixed;
     text-align: center;
 }
 
@@ -37,8 +37,8 @@ img {
     margin-bottom: 2rem;
 }
 .btn {
-    color: var(--white);
-    background: var(--brown);
+    color: var(--brown);
+    background: var(--white);
     border: 1px solid var(--brown);
     text-decoration: none;
     padding: 1rem;
@@ -69,7 +69,7 @@ img {
 }
 
 #loading-screen {
-    background-color: var(--light-green);
+    background-color: var(--orange);
     position: fixed;
     inset: 0;
     z-index: 9998;
@@ -88,7 +88,8 @@ img {
     height: 100vh;
     position: relative;
 }
-/* mvの最後に子要素として擬似要素を追加する */
+/*
+mvの最後に子要素として擬似要素を追加する
 .main-visual::after {
     content: '';
     width: 50%;
@@ -97,6 +98,7 @@ img {
     position: absolute;
     inset: 0;
 }
+*/
 .main-visual .title {
     position: absolute;
     top: 50%;
@@ -116,6 +118,27 @@ img {
     100% {opacity: 1; transform: translate(0,0);}
 }
 
+/* 
+キャッチコピー
+================================================*/
+.catch {
+    height: 100vh;
+    margin: 8rem 0;
+    text-align: right;
+    background-image: linear-gradient(
+        /* 方向, 透明度, 開始の色, 終了の色 */
+        to right,
+        transparent 0%,
+        transparent 20%,
+        var(--orange) 20%,
+        var(--light-grey) 100%
+    );
+}
+
+.catch .wrapper {
+    margin-right: 7rem;
+}
+
 /*
 コンセプト
 ================================================ */
@@ -131,14 +154,6 @@ img {
     );
 }
 
-.concept-title {
-    animation: concept-animation 4s forwards;
-}
-
-@keyframes concept-animation {
-    0% {opacity: 0; transform: translate(0, -30);}
-    100% {opacity: 1; transform: translate(0,0);}
-}
 .concept p {
     text-align: left;
     margin-bottom: 2rem;
@@ -219,8 +234,8 @@ DESKTOP SIZE
         margin-bottom: 3rem;
     }
     .btn:hover {
-        color: var(--brown);
-        background: var(--light-green);
+        color: var(--wite);
+        background: var(--orange);
     }
 
 /* SLIDE MENU */
@@ -235,10 +250,28 @@ DESKTOP SIZE
         color: var(--green);
     }
 
+/* catch */
+    .catch {
+        display: flex;
+        margin: 16rem 0;
+        text-align: right;
+        position: relative;
+    }
+
+    .catch p {
+        text-align-last: left;   
+    }
+
+    .catch img {
+        margin: -6rem 0;
+        max-width: 38rem;
+        position: absolute;
+    }
+
 /* CONCEPT*/
     .concept {
         display: flex;
-        margin: 16rem 0;
+        margin: 40rem 0 16rem 0;
     }
     .concept p {
         text-align-last: left;

@@ -51,19 +51,22 @@ window.addEventListener('load', () => {
     );
 });
 
-// conceptのtitleを指定したい
-const conceptTitle = document.querySelector('.title');
+// 交差したらする処理
+const conceptTitle = (entries) => {
+    const keyframes = {
+        opacity: [0, 1],
+        translate: ['200px 0', 0],
+    }
+    entries[0].target.animate(keyframes, 600);
+};
+
 let options1 = {threshold: 0.5};
 
-const observer1 = new IntersectionObserver(callback1, options1);
+// 監視の設定
+const conceptTitleObserver = new IntersectionObserver(conceptTitle, options1);
 
-observer1.observe(conceptTitle);
-
-function callback1(entries) {
-    if(entries[0].isIntersecting) {
-        conceptTitle.classList.add("concept-animation");
-    }
-};
+// 監視対象を設定
+conceptTitleObserver.observe(document.querySelectorAll('.title'));
 
 
 // 画像ギャラリー
